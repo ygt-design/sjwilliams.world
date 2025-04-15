@@ -12,6 +12,8 @@ const About = lazy(() => import("./pages/About/About"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const Gallery = lazy(() => import("./pages/Gallery/Gallery"));
 
+console.log("Force redeploy");
+
 function App() {
   const [loading, setLoading] = useState(true);
   const [showLoader, setShowLoader] = useState(true);
