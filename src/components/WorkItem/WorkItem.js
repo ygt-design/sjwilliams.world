@@ -9,44 +9,39 @@ const WorkItem = ({ channel, index }) => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (
-      channel.contents_count &&
-      channel.contents &&
-      channel.contents.length < channel.contents_count
-    ) {
-      const fetchFullChannel = async () => {
-        setLoading(true);
-        try {
-          const perPage = 200;
-          let page = 1;
-          let allContents = [];
-          let fetchedData = null;
-          do {
-            const response = await fetch(
-              `https://api.are.na/v2/channels/${channel.id}?per=${perPage}&page=${page}`,
-              {
-                headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
-              }
-            );
-            const data = await response.json();
-            if (page === 1) {
-              fetchedData = data;
+    const fetchFullChannel = async () => {
+      setLoading(true);
+      try {
+        const perPage = 100;
+        let page = 1;
+        let allContents = [];
+        let fetchedData = null;
+
+        do {
+          const response = await fetch(
+            `https://api.are.na/v2/channels/${channel.id}?per=${perPage}&page=${page}`,
+            {
+              headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
             }
-            allContents = allContents.concat(data.contents);
-            page++;
-          } while (allContents.length < channel.contents_count);
+          );
+          const data = await response.json();
+          if (page === 1) {
+            fetchedData = data;
+          }
+          allContents = allContents.concat(data.contents);
+          page++;
+        } while (allContents.length < fetchedData.contents_count);
 
-          const fullChannelData = { ...fetchedData, contents: allContents };
-          setFullChannel(fullChannelData);
-        } catch (error) {
-          console.error("Error fetching full channel data:", error);
-        } finally {
-          setLoading(false);
-        }
-      };
+        const fullChannelData = { ...fetchedData, contents: allContents };
+        setFullChannel(fullChannelData);
+      } catch (error) {
+        console.error("Error fetching full channel data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-      fetchFullChannel();
-    }
+    fetchFullChannel();
   }, [channel]);
 
   if (!channel.title || !channel.title.startsWith("-")) {

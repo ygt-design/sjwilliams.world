@@ -254,7 +254,14 @@ const CaseStudy = () => {
             <div className={styles.clientBlock}>{clientContentText}</div>
           </div>
         </div>
-        <div className={styles.caseWritten}>{writtenContentText}</div>
+        <div
+          className={styles.caseWritten}
+          dangerouslySetInnerHTML={{
+            __html: writtenContentText
+              .replace(/\n/g, "<br />")
+              .replace(/\s{2,}/g, (match) => "&nbsp;".repeat(match.length)),
+          }}
+        ></div>
         {/* Render 3 random draggable stickers */}
         <div className={styles.stickersContainer}>
           {stickers.map((stickerItem, index) => {

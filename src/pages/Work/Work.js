@@ -1,4 +1,3 @@
-// src/pages/Work/Work.js
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import WorkItem from "../../components/WorkItem/WorkItem";
 import styles from "./Work.module.css";
@@ -15,7 +14,7 @@ const Work = () => {
     const fetchChannels = async () => {
       try {
         const response = await fetch(
-          "https://api.are.na/v2/groups/sjwilliams-world/channels?per=100&page=1",
+          "https://api.are.na/v2/groups/sjwilliams-world/channels?per=400&page=1",
           { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
         );
         const data = await response.json();
@@ -81,7 +80,11 @@ const Work = () => {
   }
 
   return (
-    <div ref={setContainerRef} className={styles.workItemsContainer}>
+    <div
+      ref={setContainerRef}
+      className={styles.workItemsContainer}
+      style={{ overflowX: "auto", overflowY: "hidden", whiteSpace: "nowrap" }}
+    >
       {duplicatedChannels.map((channel, index) => (
         <WorkItem key={index} channel={channel} index={index} />
       ))}

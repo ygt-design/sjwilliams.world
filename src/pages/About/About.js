@@ -123,23 +123,30 @@ const About = () => {
       <div className={styles.rightSide}>
         <div className={styles.clientTextContainer}>
           <h2 className={styles.clientTextTitle}>About Me</h2>
-          <p className={styles.paragraph}>{aboutText}</p>
+          <div
+            className={styles.paragraph}
+            dangerouslySetInnerHTML={{
+              __html: aboutText
+                .replace(/\n/g, "<br />")
+                .replace(/\s{2,}/g, (match) => "&nbsp;".repeat(match.length)),
+            }}
+          ></div>
         </div>
         <br />
         <div className={styles.clientTextContainer}>
           <h2 className={styles.clientTextTitle}>Contact</h2>
-          <p className={styles.contactParagraph}>
+          <div className={styles.contactParagraph}>
             I am always open to new opportunities and collaborations. Feel free
             to reach out to me via email at{" "}
             <a href="mailto:sjwilliamsbusiness@yahoo.com">
               sjwilliamsbusiness@yahoo.com
             </a>
             .
-          </p>
+          </div>
         </div>
         <div className={styles.clientTextContainer}>
           <h2 className={styles.clientTextTitle}>Follow Me</h2>
-          <p className={styles.contactParagraph}>
+          <div className={styles.contactParagraph}>
             <a
               href="https://www.linkedin.com/in/steve-williams-jnr-233b521b4/"
               target="_blank"
@@ -163,11 +170,11 @@ const About = () => {
             >
               Instagram
             </a>
-          </p>
+          </div>
         </div>
         <div className={styles.clientTextContainer}>
           <h2 className={styles.clientTextTitle}> I'm Good At</h2>
-          <p className={styles.contactParagraph}>
+          <div className={styles.contactParagraph}>
             <h3> Creative + Production Skills </h3>
             <ul>
               <li>Creative Direction & Consultation</li>
@@ -202,7 +209,7 @@ const About = () => {
               <li>Microsoft Office Suite</li>
               <li>iMovie</li>
             </ul>
-          </p>
+          </div>
         </div>
         <div className={styles.clientTextContainer}>
           <h2 className={styles.clientTextTitle}>Clients</h2>

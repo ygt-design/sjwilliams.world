@@ -54,7 +54,7 @@ const Home = () => {
         // Increase gridStep (fewer circles).
         let gridStep = p.map(p.mouseX, 0, p.width, 5, 10);
         // Responsive font size relative to canvas width.
-        let fontSize = p.width / 10;
+        let fontSize = p.width / 5;
 
         // Create offscreen graphics buffer to render text.
         textImage.background(255);
