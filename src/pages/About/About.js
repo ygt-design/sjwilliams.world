@@ -149,11 +149,11 @@ const About = () => {
             </a>
             <br />
             <a
-              href="https://www.youtube.com/@Sjwilliams/videos"
+              href="https://substack.com/@d3spacitospider"
               target="_blank"
               rel="noopener noreferrer"
             >
-              YouTube
+              Substack
             </a>
             <br />
             <a
