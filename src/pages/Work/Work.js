@@ -37,25 +37,29 @@ const Work = () => {
 
   // Wheel handler for horizontal scrolling and infinite loop
   const handleWheel = (e) => {
-    e.preventDefault();
     const container = containerRef.current;
     if (!container) return;
-    const halfWidth = container.scrollWidth / 2;
-    // Scroll horizontally based on vertical wheel movement
-    container.scrollLeft += e.deltaY;
 
-    // Infinite scrolling logic
-    if (container.scrollLeft >= halfWidth) {
-      container.scrollLeft = container.scrollLeft - halfWidth;
-    } else if (container.scrollLeft <= 0) {
-      container.scrollLeft = container.scrollLeft + halfWidth;
+    // Detect vertical scroll only (wheel, not trackpad horizontal gesture)
+    const isVerticalScroll = Math.abs(e.deltaY) > Math.abs(e.deltaX);
+    if (isVerticalScroll) {
+      e.preventDefault();
+      container.scrollLeft += e.deltaY;
+
+      const halfWidth = container.scrollWidth / 2;
+
+      if (container.scrollLeft >= halfWidth) {
+        container.scrollLeft = container.scrollLeft - halfWidth;
+      } else if (container.scrollLeft <= 0) {
+        container.scrollLeft = container.scrollLeft + halfWidth;
+      }
+
+      const scrollPercent =
+        halfWidth > 0 ? container.scrollLeft / halfWidth : 0;
+      window.dispatchEvent(
+        new CustomEvent("workScroll", { detail: scrollPercent })
+      );
     }
-
-    // Optional: Dispatch custom event for additional effects
-    const scrollPercent = halfWidth > 0 ? container.scrollLeft / halfWidth : 0;
-    window.dispatchEvent(
-      new CustomEvent("workScroll", { detail: scrollPercent })
-    );
   };
 
   // Callback ref to attach wheel event listener as soon as the node is available
