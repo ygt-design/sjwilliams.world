@@ -1,0 +1,128 @@
+@font-face {
+    font-family: 'NeueMontreal-Book';
+    src: url('assets/fonts/PPNeueMontreal-Book.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'NeueMontreal-Medium';
+    src: url('assets/fonts/PPNeueMontreal-Medium.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'NeueMontreal-Bold';
+    src: url('assets/fonts/PPNeueMontreal-Bold.otf') format('otf');
+}
+
+@font-face {
+    font-family: 'Brut';
+    src: url('./assets/fonts/OTBrut-Regular.otf') format('otf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none;
+}
+
+body {
+    font-family: 'NeueMontreal-Book', sans-serif;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-family: 'NeueMontreal-Book', sans-serif;
+    font-size: 1rem;
+}
+
+.container {
+    width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1rem;
+}
+
+.col-1 {
+    grid-column: span 1;
+}
+
+.col-2 {
+    grid-column: span 2;
+}
+
+.col-3 {
+    grid-column: span 3;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+.col-5 {
+    grid-column: span 5;
+}
+
+.col-6 {
+    grid-column: span 6;
+}
+
+.col-7 {
+    grid-column: span 7;
+}
+
+.col-8 {
+    grid-column: span 8;
+}
+
+.col-9 {
+    grid-column: span 9;
+}
+
+.col-10 {
+    grid-column: span 10;
+}
+
+.col-11 {
+    grid-column: span 11;
+}
+
+.col-12 {
+    grid-column: span 12;
+}
+
+.col-13 {
+    grid-column: span 13;
+}
+
+.col-14 {
+    grid-column: span 14;
+}
+
+.col-15 {
+    grid-column: span 15;
+}
+
+.col-16 {
+    grid-column: span 16;
+}
+
+.col-17 {
+    grid-column: span 17;
+}
+
+.col-18 {
+    grid-column: span 18;
+}
+
+.col-19 {
+    grid-column: span 19;
+}
+
+.col-20 {
+    grid-column: span 20;
+}

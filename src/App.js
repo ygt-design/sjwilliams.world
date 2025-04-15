@@ -1,24 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect, Suspense, lazy } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import Navbar from "./components/Navbar/Navbar";
+import "./global.css";
+
+// Lazy-load your pages for code splitting
+const Home = lazy(() => import("./pages/Home/Home"));
+const Work = lazy(() => import("./pages/Work/Work"));
+const About = lazy(() => import("./pages/About/About"));
+const Contact = lazy(() => import("./pages/Contact/Contact"));
+const Gallery = lazy(() => import("./pages/Gallery/Gallery"));
+const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy"));
 
 function App() {
+  const [loading, setLoading] = useState(true);
+  const [showLoader, setShowLoader] = useState(true);
+
+  // Simulate initial loading; you can replace this with your own logic (e.g., fetching global data)
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000); // Simulated 3-second loading delay
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      {showLoader && (
+        <LoadingScreen
+          loading={loading}
+          onFinish={() => setShowLoader(false)}
+        />
+      )}
+      <Router>
+        <Navbar />
+        {/* Wrap routes in Suspense with a fallback LoadingScreen */}
+        <Suspense
+          fallback={<LoadingScreen loading={true} onFinish={() => {}} />}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/work" element={<Work />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/case-study/:channelId" element={<CaseStudy />} />
+          </Routes>
+        </Suspense>
+      </Router>
+    </>
   );
 }
 

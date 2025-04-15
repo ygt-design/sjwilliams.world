@@ -1,0 +1,59 @@
+.workItemLink {
+    display: contents;
+}
+
+.contentWrapper {
+    /* This inner wrapper will be shifted on hover */
+    transition: transform 0.2s ease-out;
+    /* No initial transform here */
+    touch-action: none;
+
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(1000px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(220px);
+    }
+}
+
+.workItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    cursor: pointer;
+    /* This is set by the fadeInUp animation */
+    transform: translateY(220px);
+    opacity: 0;
+    /* Start hidden */
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* On hover, shift the inner content upward by 270px */
+.workItem:hover .contentWrapper {
+    transform: translateY(-270px);
+}
+
+.cover {
+    margin-bottom: 20px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 250px;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.title img {
+    width: 100%;
+    object-fit: cover;
+}

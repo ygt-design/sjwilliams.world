@@ -1,0 +1,152 @@
+.caseStudyContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 100vh;
+    overflow-y: none;
+}
+
+.leftSide {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: none;
+    position: relative;
+    height: 100%;
+    padding-left: 2rem;
+    padding-top: 5rem;
+    font-size: .9em;
+}
+
+.stickersContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sticker {
+    pointer-events: all;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caseTitleImage {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.caseWritten {
+    position: absolute;
+    font-size: 1rem;
+    line-height: 1.35rem;
+    bottom: 20px;
+}
+
+.rightSide {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 50px;
+    height: 100%;
+    overflow-y: scroll;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+.rightSide img {
+    max-width: 100%;
+    width: 90%;
+    height: auto;
+    margin: auto;
+}
+
+.caseCover {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.subheadWrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-weight: normal;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.firstWord {
+    color: black;
+}
+
+.mediumBlock,
+.clientBlock {
+    color: rgb(183, 183, 183);
+}
+
+.videoContainer {
+    margin-top: 1rem;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.videoEmbed {
+    width: 100%;
+    max-width: 400px;
+}
+
+.videoEmbed iframe {
+    width: 100%;
+    aspect-ratio: 16/9;
+    height: 100%;
+    border: none;
+}
+
+.videoList {
+    width: 90%;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .caseStudyContainer {
+        grid-template-columns: 1fr;
+        gap: 0;
+        overflow-y: auto;
+    }
+
+    .leftSide {}
+
+    .caseWritten {
+        position: relative;
+        margin-top: 100px;
+        font-size: 1rem;
+        line-height: 1.35rem;
+    }
+
+    .rightSide {
+        padding-top: 0;
+        padding-bottom: 0;
+        height: auto;
+        overflow-y: auto;
+        height: fit-content;
+    }
+
+    .sticker {
+        display: none;
+    }
+
+}

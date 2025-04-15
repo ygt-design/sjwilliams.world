@@ -1,0 +1,131 @@
+* {
+    font-family: 'NeueMontreal-Book', sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.aboutContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    max-height: 100vh;
+    background: #fff;
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.aboutContainer h2{
+    display: inline;
+    white-space: nowrap;
+}
+
+.rightSide ul{
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.leftSide,
+.rightSide {
+    flex: 1;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    overflow-y: scroll;
+    height: 100vh;
+    padding-right: 30px;
+    padding-bottom: 5vh;
+}
+
+.leftSide {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.leftSide canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.paragraph {
+    font-size: 1.125rem;
+    line-height: 1.4rem;
+}
+
+.clientTextContainer {
+    display: grid;
+    grid-template-columns: 1fr 3.5fr;
+    gap: 20px;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.clientTextTitle {
+    width: fit-content;
+    height: fit-content;
+    color: white;
+    background-color: magenta;
+    font-weight: normal;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 100px;
+    font-size: 1.125rem;
+}
+
+.clientParagraph{
+    font-size: 1.125rem;
+    white-space: pre-wrap;
+}
+
+.contactParagraph,
+.contactParagraph a{
+    font-size: 1.125rem;
+    line-height: 1.4rem;
+}
+
+.contactParagraph a{
+    text-decoration: underline;;
+}
+
+@media screen and (max-width: 768px) {
+    .aboutContainer {
+        grid-template-columns: 1fr;
+        margin-top: 0;
+    }
+
+    .leftSide {
+        display: none;
+    }
+
+    .rightSide {
+        padding-right: 1rem;
+        padding: 20px;
+        padding-top: 120px;
+        margin-top: -10px;
+    }
+
+    .clientTextContainer {
+        grid-template-columns: 1fr;
+    }
+    .clientTextTitle {
+        margin-bottom: 1rem;
+    }
+    .clientParagraph {
+        margin-bottom: 1rem;
+    }
+    .contactParagraph {
+        margin-bottom: 1rem;
+    }
+    .contactParagraph a {
+        margin-bottom: 1rem;
+    }   
+    
+}

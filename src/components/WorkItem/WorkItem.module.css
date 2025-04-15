@@ -1,0 +1,47 @@
+.workItem {
+    margin-bottom: 1rem;
+    margin-bottom: -53%;
+    transition: all 0.2s ease-out;
+    cursor: pointer;
+}
+
+.workItemLink {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    /* Ensure the link element supports animation */
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInAnimation 0.5s ease forwards;
+  }
+  
+
+@keyframes fadeInAnimation {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.workItem:hover{
+    margin-bottom: 0%;
+}
+
+.blocksContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.coverBlocks {
+    margin-bottom: 1rem;
+}
+
+.coverBlock,
+.titleBlock {
+    margin-bottom: 0.5rem;
+}
+
+.blockImage {
+    width: 350px;
+    height: auto;
+}
