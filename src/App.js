@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
 import Navbar from "./components/Navbar/Navbar";
 import "./global.css";
+import CaseStudy from "./pages/CaseStudy/CaseStudy";
 
 // Lazy-load your pages for code splitting
 const Home = lazy(() => import("./pages/Home/Home"));
@@ -10,7 +11,6 @@ const Work = lazy(() => import("./pages/Work/Work"));
 const About = lazy(() => import("./pages/About/About"));
 const Contact = lazy(() => import("./pages/Contact/Contact"));
 const Gallery = lazy(() => import("./pages/Gallery/Gallery"));
-const CaseStudy = lazy(() => import("./pages/CaseStudy/CaseStudy"));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,6 @@ function App() {
       )}
       <Router>
         <Navbar />
-        {/* Wrap routes in Suspense with a fallback LoadingScreen */}
         <Suspense
           fallback={<LoadingScreen loading={true} onFinish={() => {}} />}
         >
